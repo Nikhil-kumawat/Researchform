@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Research Platform</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Background Video */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background-video video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* Vignette Effect */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* Form Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .form-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        input:focus, select:focus {
+            transform: scale(1.03);
+            outline: none;
+            border: 2px solid #6c63ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #6c63ff;
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #5548c8;
+        }
+
+        /* Password Strength Meter */
+        #strength-indicator {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .strength {
+            font-weight: bold;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .moderate {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
+
+        /* Checkbox Styling */
+        .terms {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .terms input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 2px solid #6c63ff;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .terms input[type="checkbox"]:checked {
+            background: #6c63ff;
+            border: 2px solid #6c63ff;
+        }
+
+        .terms input[type="checkbox"]:checked::after {
+            content: "✔";
+            color: #fff;
+            position: absolute;
+            font-size: 14px;
+            top: 0;
+            left: 4px;
+        }
+
+        .terms a {
+            color: #6c63ff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: #6c63ff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer img {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="background-video">
+        <video autoplay muted loop playsinline>
+            <source src="download.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="vignette"></div>
+
+    <!-- Form -->
+    <div class="container">
+        <div class="form-box">
+            <h1>Join Our Platform</h1>
+            <form id="joinForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="orcid">ORCID</label>
+                <input type="text" id="orcid" placeholder="Enter your ORCID ID" required>
+
+                <label for="linkedin">LinkedIn Profile</label>
+                <input type="url" id="linkedin" placeholder="Enter your LinkedIn profile URL" required>
+
+                <label for="github">GitHub Profile</label>
+                <input type="url" id="github" placeholder="Enter your GitHub profile URL" required>
+
+                <label for="college">Organization/College</label>
+                <select id="college" required>
+                    <option value="">Select your college</option>
+                    <option>MNIT Jaipur</option>
+                    <option>SKIT Jaipur</option>
+                    <option>JECRC University</option>
+                </select>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <div id="strength-indicator"></div>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                <div id="error-message">Passwords do not match!</div>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        I agree to the <a href="#" id="terms-link">Terms and Conditions</a>.
+                    </label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Developed by 
+        <a href="https://www.linkedin.com/in/nikhilcse/" target="_blank">Nikhil Kumawat</a>
+        <a href="https://github.com/Nikhil-kumawat" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+        </a>
+    </div>
+
+    <script>
+        // Password Strength Indicator
+        const password = document.getElementById("password");
+        const strengthIndicator = document.getElementById("strength-indicator");
+
+        password.addEventListener("input", () => {
+            const value = password.value;
+            let strength = "Weak";
+            let className = "weak";
+
+            if (value.length >= 8 && /[A-Z]/.test(value) && /\d/.test(value) && /[@$!%*?&#]/.test(value)) {
+                strength = "Strong";
+                className = "strong";
+            } else if (value.length >= 6 && (/[A-Z]/.test(value) || /\d/.test(value))) {
+                strength = "Moderate";
+                className = "moderate";
+            }
+
+            strengthIndicator.textContent = `Password Strength: ${strength}`;
+            strengthIndicator.className = `strength ${className}`;
+        });
+
+        // Validate Passwords Match
+        const form = document.getElementById("joinForm");
+        const confirmPassword = document.getElementById("confirm-password");
+        const errorMessage = document.getElementById("error-message");
+
+        form.addEventListener("submit", (e) => {
+            if (password.value !== confirmPassword.value) {
+                errorMessage.style.display = "block";
+                e.preventDefault();
+            } else {
+                errorMessage.style.display = "none";
+                alert("Successfully Submitted!");
+            }
+        });
+
+        // Terms Link
+        document.getElementById("terms-link").addEventListener("click", () => {
+            alert("Terms and Conditions: Ensure accuracy of all provided details.");
+        });
+    </script>
+</body>
+</html>
+
+
+
+ 
